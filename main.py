@@ -8,6 +8,7 @@ from rich.live import Live
 
 from utils import logger
 from core.grass import GrassRest
+from data.config import THREADS
 
 output_lock = asyncio.Lock()
 
@@ -121,6 +122,11 @@ async def read_file_lines(file_path):
         return [line.strip() for line in file if line.strip()]
 
 
+async def process_account(semaphore, allocator, table_formatter):
+    async with semaphore:
+        return await allocator.process_allocation(table_formatter)
+
+
 async def main():
     accounts = await read_file_lines('data/accounts.txt')
     accounts = [account.split(':') for account in accounts]
@@ -134,13 +140,19 @@ async def main():
 
     await table_formatter.start()
 
+    semaphore = asyncio.Semaphore(THREADS)
+
     tasks = [
-        AirdropAllocator(
-            email, 
-            password, 
-            proxies[i % len(proxies)] if proxies else None, 
-            i+1
-        ).process_allocation(table_formatter)
+        process_account(
+            semaphore,
+            AirdropAllocator(
+                email, 
+                password, 
+                proxies[i % len(proxies)] if proxies else None, 
+                i+1
+            ),
+            table_formatter
+        )
         for i, (email, password) in enumerate(accounts)
     ]
 
@@ -171,6 +183,6 @@ async def main():
 if __name__ == '__main__':
     console = Console()
     console.print("Starting Airdrop Allocator...", style="bold green")
-    console.print("IF ERRORS OCCUR - CHANGE PROXY OR ACCOUNT IS INVALID OR UNELIGIBLE\n", style="bold yellow")
+    console.print(f"Using {THREADS} threads", style="bold yellow")
 
     asyncio.run(main())

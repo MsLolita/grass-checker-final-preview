@@ -37,10 +37,10 @@ class GrassRest(BaseClient):
 
     async def handle_login(self):
         handler = retry(
-            stop=stop_after_attempt(4),
+            stop=stop_after_attempt(2),
             before_sleep=lambda retry_state, **kwargs: logger.info(f"{self.email} | Login retrying... "
                                                                    f"{retry_state.outcome.exception()}"),
-            wait=wait_random(8, 12),
+            wait=wait_random(2, 4),
             reraise=True
         )
 
