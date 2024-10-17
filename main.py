@@ -181,6 +181,8 @@ async def main():
 
 
 if __name__ == '__main__':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
     console = Console()
     console.print("Starting Airdrop Allocator...", style="bold green")
     console.print(f"Using {THREADS} threads", style="bold yellow")
