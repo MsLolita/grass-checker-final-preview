@@ -1,4 +1,4 @@
-# Grass Checker + Claimer (Soon) 🔹
+# Grass Checker Final + Bonus Epoch + Claimer (Soon) 🔹
 
 
 Discover the latest `<crypto/>` moves in my Telegram Channel:
@@ -7,7 +7,7 @@ Discover the latest `<crypto/>` moves in my Telegram Channel:
 
 Cheapest [proxies and servers](https://teletype.in/@web3enjoyer/4a2G9NuHssy) which fits for  on [grass.io](https://app.getgrass.io/register/?referralCode=erxggzon61FWrJ9).
 
-![image](https://github.com/user-attachments/assets/dfbb86c1-a053-478c-8e95-a5f6ced7de5f)
+![image](https://github.com/user-attachments/assets/6fa3bcb5-2fba-4f69-adc9-d205320e35f4)
 
 
 ### What is bot for?
@@ -29,9 +29,10 @@ Cheapest [proxies and servers](https://teletype.in/@web3enjoyer/4a2G9NuHssy) whi
 
 1. Accounts Setup 🔒
 
-   Put in `data/wallets.txt` wallets 
+   Put in `data/accounts.txt` accounts like email:password 
    
-   ![image](https://github.com/user-attachments/assets/14a92b51-039d-41c6-ad77-1dbfb414d89a)
+   ![image](https://github.com/user-attachments/assets/05df8db7-9e5e-4e62-a181-db024a217e29)
+
 
 2. Proxy Setup 🔒
 
