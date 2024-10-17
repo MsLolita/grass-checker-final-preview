@@ -1,1 +1,1 @@
-THREADS = 1
+THREADS = 5
